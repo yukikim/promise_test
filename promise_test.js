@@ -18,3 +18,6 @@ Test.makeToken()
         console.error(err)
     })
 
+var newToken = JSON.parse(Test.syncToken())
+newToken = newToken.token
+console.log('トークンは:' + newToken)

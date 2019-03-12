@@ -1,4 +1,5 @@
 const request = require('superagent')
+const syncRequest = require('sync-request')
 
 exports.callApi = function(apiName) {
     return new Promise(
@@ -31,4 +32,9 @@ exports.makeToken = function () {
             })
     })
 
+}
+
+exports.syncToken = function () {
+    var res = syncRequest('POST', 'http://localhost:3001/token/create', {json:{password: 'kimura'}})
+    return res.getBody()
 }
